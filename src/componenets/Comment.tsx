@@ -1,4 +1,3 @@
-// src/components/Comment.tsx
 import React, { useState } from "react";
 import { CommentType } from "../store/types";
 import { FaRegCommentDots } from "react-icons/fa";
@@ -52,20 +51,20 @@ const Comment: React.FC<CommentProps> = ({
           className="user-icon"
         />
         <span className="username">User0001</span>
-        <p className="descrip-text">  0 points. less than a minute age.</p>
+        <p className="descrip-text"> 0 points. less than a minute age.</p>
       </div>
       <p className="comment-text">{comment.text}</p>
       <div className="button-container">
         <button onClick={() => handleUpvote()}>
-          <BiUpvote style={{ marginRight: "5px" }} />
+          <BiUpvote className="updownvote-button" />
         </button>
         <span>{comment.upvotes}</span>
         <button onClick={() => handleDownvote()}>
-          <BiDownvote style={{ marginRight: "5px" }} />
+          <BiDownvote className="updownvote-button" />
         </button>
         <span>{comment.downvotes}</span>
-        <button onClick={() => setshowReplyInput(!showReplyInput)}>
-          <FaRegCommentDots className="reply-icon" />{" "}
+        <button className="updownvote-button" onClick={() => setshowReplyInput(!showReplyInput)}>
+          <FaRegCommentDots className="reply-icon" />
           {showReplyInput ? "" : "Reply"}
         </button>
       </div>

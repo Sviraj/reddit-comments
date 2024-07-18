@@ -1,4 +1,3 @@
-// src/store/types.ts
 export interface CommentType {
     id: string;
     text: string;
