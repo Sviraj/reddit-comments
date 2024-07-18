@@ -1,0 +1,9 @@
+// src/styles/_mixins.scss
+@mixin box-shadow($color) {
+    box-shadow: 0 4px 6px rgba($color, 0.1), 0 2px 4px rgba($color, 0.06);
+  }
+  
+  @mixin transition($property, $duration) {
+    transition: $property $duration ease-in-out;
+  }
+  

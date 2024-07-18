@@ -1,0 +1,71 @@
+// src/styles/CommentForm.scss
+@import "./variables";
+@import "./mixins";
+
+.comment-form {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid $secondary-color;
+  border-radius: $border-radius;
+  padding: $padding/4;
+  margin-bottom: $padding;
+  @include box-shadow($secondary-color);
+
+  form {
+    display: flex;
+    //align-items: center;
+    flex-direction: column;
+    width: 100%;
+    //gap: 5px;
+
+    textarea {
+      //flex: 1;
+      border: 1px solid $secondary-color;
+      border-radius: $border-radius;
+      padding: $padding / 2;
+      margin-right: $padding / 2;
+      margin-bottom: $padding / 2;
+      height: 80px;
+      resize: none;
+
+      &::placeholder {
+        white-space: pre-line; // Ensure placeholder text is on a single line
+        text-align: left;
+      }
+    
+    }
+
+    .form-footer {
+      display: flex;
+      //justify-content: space-between;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 40px;
+
+      .error {
+        color: red;
+        //margin-top: $padding / 2;
+        font-size: 12px;
+        visibility: hidden;
+      }
+      .error.visible {
+        visibility: visible;
+      }
+
+      button {
+        //align-self: flex-end;
+        margin-left: auto;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius;
+        padding: $padding / 2 $padding;
+        cursor: pointer;
+        @include transition(background-color, 0.3s);
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
