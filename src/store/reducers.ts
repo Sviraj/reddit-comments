@@ -1,6 +1,8 @@
 import { ADD_COMMENT, ADD_REPLY, UPVOTE, DOWNVOTE } from "./actions";
 import { CommentType, State } from "./types";
 
+const imgUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXEFoxdhUxekM-iQ3hJK9b5MJcgwxVc_cU_g&s';
+
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem("state");
@@ -65,6 +67,8 @@ const reducer = (state = initialState, action: any): State => {
             upvotes: 0,
             downvotes: 0,
             replies: [],
+            username: 'Ariana Grant',
+            imgUrl: imgUrl,
           },
         ],
       };
@@ -77,6 +81,8 @@ const reducer = (state = initialState, action: any): State => {
           upvotes: 0,
           downvotes: 0,
           replies: [],
+          username: 'Ariana Grant',
+          imgUrl: imgUrl,
         }),
       };
     case UPVOTE:

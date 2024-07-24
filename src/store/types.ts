@@ -4,6 +4,8 @@ export interface CommentType {
     upvotes: number;
     downvotes: number;
     replies: CommentType[];
+    username: string;
+    imgUrl: string;
   }
   
   export interface State {

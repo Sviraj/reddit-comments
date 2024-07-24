@@ -19,6 +19,7 @@ const Comment: React.FC<CommentProps> = ({
   const [replyText, setReplyText] = useState("");
   const [showReplyInput, setshowReplyInput] = useState(false);
   const [error, setError] = useState("");
+  const [oneclick, setOneclick]= useState(true);
 
   const handleReply = () => {
     if (replyText.trim() === "") {
@@ -35,7 +36,10 @@ const Comment: React.FC<CommentProps> = ({
   };
 
   const handleUpvote = () => {
+    if(oneclick){
     upvote(comment.id);
+    setOneclick(false);
+    }
   };
 
   const handleDownvote = () => {
@@ -46,16 +50,16 @@ const Comment: React.FC<CommentProps> = ({
     <div className="comment">
       <div className="comment-header">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXEFoxdhUxekM-iQ3hJK9b5MJcgwxVc_cU_g&s"
-          alt="user0001"
+          src={comment.imgUrl}
+          alt={comment.username}
           className="user-icon"
         />
-        <span className="username">User0001</span>
+        <span className="username">{comment.username}</span>
         <p className="descrip-text"> 0 points. less than a minute age.</p>
       </div>
       <p className="comment-text">{comment.text}</p>
       <div className="button-container">
-        <button onClick={() => handleUpvote()}>
+          <button onClick={() => handleUpvote()}>
           <BiUpvote className="updownvote-button" />
         </button>
         <span>{comment.upvotes}</span>
